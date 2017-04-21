@@ -3,11 +3,13 @@
 using namespace std;
 
 Type::Type() {
-	/*this->name = NULL;
+	/*strcpy_s(this->name, NULL);
 	this->numberOF = NULL;
-	this->F1 = NULL;
-	this->F2 = NULL;
-	this->F3 = NULL;*/
+	strcpy_s(this->F1, NULL);
+	strcpy_s(this->F2, NULL);
+	strcpy_s(this->F3, NULL);
+	strcpy_s(this->F4, NULL);
+	strcpy_s(this->F5, NULL);*/
 }
 
 Type::Type(int id, char *name, int numberOfFields, char *field1, char *field2

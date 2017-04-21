@@ -3,14 +3,17 @@
 
 #include <fstream>
 #include <iostream>
+#include "Record.h"
+#include "Page.h"
 
 class File {
 	static File *instance;
 	File();
 public:
 	static File *getInstance();
-	bool createFile();
-	bool createPage();
-	bool isPageFull();
+	static bool reg_rec(Record record);
+	static bool reg_page(Page page);
+	static bool get_rec();
+	static bool get_page();
 };
 #endif // !FILE_H

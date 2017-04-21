@@ -17,6 +17,7 @@ Ddl::Ddl() {
 bool Ddl::createType() {
 
 	char F[15];
+	int cont;
 	/**F1 = '0';
 	*F2 = '0';
 	*F3 = '0';
@@ -26,47 +27,84 @@ bool Ddl::createType() {
 	*NOF = 0;*/
 
 	cout << "Please write type name: " << endl;
-	cin  >> typeName;
+	cin >> typeName;
 	system("cls");
-	
+beginfor:
 	for (int i = 1; i < 6; i++) {
-
+		
 		cout << "Please write field " << i << " of type " << typeName << endl
 			<< "(press q to finish entering field)" << endl;
 		cin >> F;
-		switch (i)
-		{
-		case 1:
-			if ((char)F == 'q') {
-				NOF = i;
-				return true;
-			}
-			strcpy_s(F1, F);
-			break;
-		case 2:
-			strcpy_s(F2, F);
-			break;
-		case 3:
-			strcpy_s(F3, F);
-			break;
-		case 4:
-			strcpy_s(F4, F);
-			break;
-		case 5:
-			strcpy_s(F5, F);
-			NOF = 5;
-			break;
 
-		default:
-			break;
-		}
-	}
+		switch(F[0]){
+			case 'q':
+			switch (i) {
+				case 1:
+					cout << "you should provide at least 1 field!"<< endl;
+					goto beginfor;
+				case 2:
+					strcpy_s(F2, F);
+					strcpy_s(F3, F);
+					strcpy_s(F4, F);
+					strcpy_s(F5, F);
+					NOF = 1;
+					break;
+				case 3:
+					strcpy_s(F3, F);
+					strcpy_s(F4, F);
+					strcpy_s(F5, F);
+					NOF = 2;
+					break;
+				case 4:
+					strcpy_s(F4, F);
+					strcpy_s(F5, F);
+					NOF = 3;
+					break;
+				case 5:
+					strcpy_s(F5, F);
+					NOF = 4;
+					break;
+				}
+
+				goto endfor;
+				default:
+
+					switch (i)
+					{
+					case 1:
+						strcpy_s(F1, F);
+						NOF = 1;
+						break;
+					case 2:
+						strcpy_s(F2, F);
+						NOF = 2;
+						break;
+					case 3:
+						strcpy_s(F3, F);
+						NOF = 3;
+						break;
+					case 4:
+						strcpy_s(F4, F);
+						NOF = 4;
+						break;
+					case 5:
+						strcpy_s(F5, F);
+						NOF = 5;
+						break;
+
+					default:
+						break;
+					}
+	
+			}
+}
+endfor:
+
 	fstream syscat;
 	char id = '0';
 	syscat.open(".\\sys2.cat", ios::in | ios::beg);
 	if (!syscat.is_open()) {
 		syscat.open(".\\sys2.cat", ios::out | ios::app);
-		cout << "sys2" << endl;
 		syscat.put(0);
 		syscat.close();
 	}
@@ -75,10 +113,8 @@ bool Ddl::createType() {
 		syscat.close();
 	}
 
-
 	Syscat::reg_type(Type((int) id, typeName, NOF, F1, F2, F3, F4, F5));
 	
-	DdlEntrance::getInstance()->console();
 	return true;
 }
 
@@ -107,7 +143,6 @@ bool Ddl::deleteType() {
 
 	Syscat::getInstance()->del_type(selected);
 
-	DdlEntrance::getInstance()->console();
 	return true;
 }
 
@@ -132,6 +167,5 @@ bool Ddl::listTypes() {
 	}
 
 	cout << endl << endl << "---------" << endl ;
-	DdlEntrance::getInstance()->console();
 	return true;
 }

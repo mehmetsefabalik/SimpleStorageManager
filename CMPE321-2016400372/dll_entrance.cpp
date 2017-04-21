@@ -30,14 +30,17 @@ void DdlEntrance::console() {
 		}
 		else if (selected == 1) {
 			Ddl::getInstance()->createType();
+			DdlEntrance::getInstance()->console();
 			break;
 		}
 		else if (selected == 2) {
 			Ddl::getInstance()->deleteType();
+			DdlEntrance::getInstance()->console();
 			break;
 		}
 		else if (selected == 3) {
 			Ddl::getInstance()->listTypes();
+			DdlEntrance::getInstance()->console();
 			break;
 		}
 		else {

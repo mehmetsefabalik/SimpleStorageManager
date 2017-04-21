@@ -4,6 +4,7 @@
 #include <iostream>
 #include "file.h"
 #include "syscat.h"
+#include "dll.h"
 
 using namespace std;
 

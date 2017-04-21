@@ -3,16 +3,14 @@
 
 #include <iostream>
 #include <fstream>
-#include "file.h"
 #include "Record.h"
 
 class Page {
-	char name[15];
 	Record R1, R2, R3, R4, R5;
 	int id;
 public:
 	Page();	
-	Page(char *name, int id, Record r1, Record r2, Record r3, 
+	Page(int id, Record r1, Record r2, Record r3, 
 		Record r4, Record r5);
 	char getName();
 	int getId();

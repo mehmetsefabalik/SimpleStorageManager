@@ -15,10 +15,10 @@ File *File::getInstance() {
 	return instance;
 }
 
-bool File::createFile() {
-	fstream datafile;
+bool File::reg_rec(Record record) {
+	/*fstream datafile;
 
-	datafile.open(".\\data.dat", ios::in);
+	datafile.open(".\\record.dat", ios::in);
 
 	if (datafile.is_open()) {
 		datafile.close(); 
@@ -28,6 +28,7 @@ bool File::createFile() {
 		datafile.open(".\\data.dat", ios::out);
 		datafile.close();
 		return true;
-	}
+	}*/
+	return true;
 
 }
