@@ -115,7 +115,12 @@
     <ClCompile Include="dml.cpp" />
     <ClCompile Include="dml_entrance.cpp" />
     <ClCompile Include="entrance.cpp" />
+    <ClCompile Include="file.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Page.cpp" />
+    <ClCompile Include="Record.cpp" />
+    <ClCompile Include="syscat.cpp" />
+    <ClCompile Include="Type.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dll.h" />
@@ -123,6 +128,11 @@
     <ClInclude Include="dml.h" />
     <ClInclude Include="dml_entrance.h" />
     <ClInclude Include="entrance.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="Record.h" />
+    <ClInclude Include="syscat.h" />
+    <ClInclude Include="Type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

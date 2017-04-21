@@ -27,26 +27,27 @@ void DmlEntrance::console() {
 		cin >> selected;
 		system("cls");
 		if (selected == 0) {
+			Entrance::getInstance()->console();
 			return;
 		}
 		else if (selected == 1) {
-
+			Dml::getInstance()->createRecord();
 			break;
 		}
 		else if (selected == 2) {
-
+			Dml::getInstance()->deleteRecord();
 			break;
 		}
 		else if (selected == 3) {
-
+			Dml::getInstance()->updateRecord();
 			break;
 		}
 		else if (selected == 4) {
-
+			Dml::getInstance()->searchRecord();
 			break;
 		}
 		else if (selected == 5) {
-
+			Dml::getInstance()->listRecords();
 			break;
 		}
 		else {

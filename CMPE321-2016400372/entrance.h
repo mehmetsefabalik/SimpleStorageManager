@@ -2,8 +2,8 @@
 #define ENTRANCE_H 
 
 #include <iostream>
-#include "dll.h"
-#include "dml.h"
+#include "dll_entrance.h"
+#include "dml_entrance.h"
 
 using namespace std;
 

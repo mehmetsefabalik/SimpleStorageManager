@@ -25,18 +25,19 @@ void DdlEntrance::console() {
 		cin >> selected;
 		system("cls");
 		if (selected == 0) {
+			Entrance::getInstance()->console();
 			return;
 		}
 		else if (selected == 1) {
-
+			Ddl::getInstance()->createType();
 			break;
 		}
 		else if (selected == 2) {
-
+			Ddl::getInstance()->deleteType();
 			break;
 		}
 		else if (selected == 3) {
-			
+			Ddl::getInstance()->listTypes();
 			break;
 		}
 		else {

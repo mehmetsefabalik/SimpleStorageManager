@@ -30,11 +30,11 @@ void Entrance::console()
 			return;
 		}
 		else if (selected == 1) {
-
+			DmlEntrance::getInstance()->console();
 			break;
 		}
 		else if (selected == 2) {
-			
+			DdlEntrance::getInstance()->console();
 			break;
 		}
 		else {
