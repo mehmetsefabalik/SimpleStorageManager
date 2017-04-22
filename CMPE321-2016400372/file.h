@@ -12,7 +12,7 @@ class File {
 public:
 	static File *getInstance();
 	static bool reg_rec(Record record);
-	static bool reg_page(Page page);
+	static bool reg_page(Record* record);
 	static bool get_rec();
 	static bool get_page();
 };

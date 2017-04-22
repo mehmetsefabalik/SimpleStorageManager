@@ -17,14 +17,6 @@ Ddl::Ddl() {
 bool Ddl::createType() {
 
 	char F[15];
-	int cont;
-	/**F1 = '0';
-	*F2 = '0';
-	*F3 = '0';
-	*F4 = '0';
-	*F5 = '0';
-	*typeName = '0';
-	*NOF = 0;*/
 
 	cout << "Please write type name: " << endl;
 	cin >> typeName;

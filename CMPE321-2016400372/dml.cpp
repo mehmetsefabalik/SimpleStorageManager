@@ -52,19 +52,22 @@ bool Dml::createRecord() {
 	}
 	fstream syscat;
 	char id = '0';
-	syscat.open(".\\record2.cat", ios::in | ios::beg);
+	syscat.open(".\\page2.dat", ios::in | ios::beg);
 	if (!syscat.is_open()) {
-		syscat.open(".\\record2.cat", ios::out | ios::app);
+		syscat.open(".\\page2.dat", ios::out | ios::app);
 		syscat.put(0);
 		syscat.close();
+		File::reg_page(&Record(&type, 0, F1, F2, F3, F4, F5));
+		goto escape;
 	}
 	else {
 		syscat.get(id);
 		syscat.close();
 	}
 
-	File::reg_rec(Record(type,(int)id,F1,F2,F3,F4,F5));
-
+	File::reg_page(&Record(&type,(int)id,F1,F2,F3,F4,F5));
+escape:
+	DmlEntrance::getInstance()->console();
 	return true;
 }
 

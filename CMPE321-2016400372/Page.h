@@ -6,27 +6,24 @@
 #include "Record.h"
 
 class Page {
-	Record R1, R2, R3, R4, R5;
-	int id;
+	Record *R1, *R2,* R3, *R4, *R5;
+	int id, NOR;
 public:
 	Page();	
-	Page(int id, Record r1, Record r2, Record r3, 
-		Record r4, Record r5);
-	char getName();
 	int getId();
-	Record getR1();
-	Record getR2();
-	Record getR3();
-	Record getR4();
-	Record getR5();
+	Record* getR1();
+	Record* getR2();
+	Record* getR3();
+	Record* getR4();
+	Record* getR5();
+	int getNor();
 	void setId(int id);
-	void setName(char *name);
-	void setR1(Record r1);
-	void setR2(Record r2);
-	void setR3(Record r3);
-	void setR4(Record r4);
-	void setR5(Record r5);
-	
+	void setR1(Record* r1);
+	void setR2(Record* r2);
+	void setR3(Record* r3);
+	void setR4(Record* r4);
+	void setR5(Record* r5);
+	void setNor(int nor);
 };
 
 #endif // !PAGE_H
