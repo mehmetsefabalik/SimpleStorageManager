@@ -72,6 +72,7 @@ escape:
 }
 
 bool Dml::deleteRecord() {
+
 	return true;
 }
 
@@ -118,7 +119,7 @@ bool Dml::listRecords() {
 			{
 			case 1:
 				record = page.getR1();
-				//cout << "1 " << record.getF2() << endl;
+				//cout << "====" << record.getId() +1 << endl;
 				typeptr1 = record.getType();
 				//cout << "compare : " << strcmp(typeptr->getName(), typeptr1->getF1());
 				if (!strcmp(type.getName(), typeptr1.getName())) {
@@ -134,7 +135,7 @@ bool Dml::listRecords() {
 			case 2:
 				record = page.getR2();
 				typeptr1 = record.getType();
-				//cout << "2 " << record.getF2() << endl;
+				//cout << "====" << record.getId() + 1 << endl;
 				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
@@ -148,7 +149,7 @@ bool Dml::listRecords() {
 			case 3:
 				record = page.getR3();
 				typeptr1 = record.getType();
-				//cout << "3 " << record.getF2() << endl;
+				//cout << "====" << record.getId() + 1 << endl;
 				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
@@ -162,6 +163,7 @@ bool Dml::listRecords() {
 			case 4:
 				record = page.getR4();
 				typeptr1 = record.getType();
+				//cout << "====" << record.getId() + 1 << endl;
 				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
@@ -175,6 +177,7 @@ bool Dml::listRecords() {
 			case 5:
 				record = page.getR5();
 				typeptr1 = record.getType();
+				//cout << "====" << record.getId() + 1 << endl;
 				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;

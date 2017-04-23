@@ -52,7 +52,7 @@ bool Syscat::del_type(int id) {
 	file.get(max);
 	int maxint = max - '0';
 	char newmax = (maxint-1) + '0';
-	cout << "newmax: " << newmax << endl;
+	//cout << "newmax: " << newmax << endl;
 	file.seekp(0);
 	file.put(newmax);
 	file.close();
@@ -60,7 +60,7 @@ bool Syscat::del_type(int id) {
 	syscat.seekg((maxint-1)*(int)sizeof(Type));
 	syscat.read((char *)&typeend, sizeof(Type));
 	typeend.setId(id-1);
-	cout << "id setted " << id - 1 << endl << typeend.getId() << endl;
+	//cout << "id setted " << id - 1 << endl << typeend.getId() << endl;
 	syscat.seekp((id-1)*(int)sizeof(Type));
 	syscat.write((char *)&typeend, sizeof(Type));
 	syscat.seekg(0);

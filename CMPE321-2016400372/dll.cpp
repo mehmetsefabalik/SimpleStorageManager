@@ -24,8 +24,7 @@ bool Ddl::createType() {
 beginfor:
 	for (int i = 1; i < 6; i++) {
 		
-		cout << "Please write field " << i << " of type " << typeName << endl
-			<< "(press q to finish entering field)" << endl;
+		cout << endl << "Please write field " << i << " of type " << typeName << endl;
 		cin >> F;
 
 		switch(F[0]){

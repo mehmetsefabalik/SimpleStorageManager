@@ -32,7 +32,7 @@ bool File::reg_rec(Record record) {
 bool File::reg_page(Record record) {
 	fstream file;
 	Page page;
-	cout << "SIZEOF PAGE: " << sizeof(Page) << endl;
+	//cout << "SIZEOF PAGE: " << sizeof(Page) << endl;
 	char BUFFER[100000];
 	char page2num;
 	file.open(".\\page2.dat", ios::in | ios::beg);
