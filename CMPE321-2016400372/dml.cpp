@@ -100,7 +100,7 @@ bool Dml::listRecords() {
 	file.get(page2num);
 	file.close();
 	int page2 = ((page2num - '0') + 48);
-	cout << "page2 " << page2;
+	//cout << "page2 " << page2;
 	if (page2 == 0) {
 		cout << "There are no types yet :(";
 		return true;
@@ -109,15 +109,16 @@ bool Dml::listRecords() {
 		file.open(".\\page.dat", ios::in | ios::binary);
 		file.seekg((i - 1) * sizeof(Page));
 		file.read((char*)&page, sizeof(Page));
+		cout << "----------Reading Page " << page.getId() + 1 << "---------" << endl;
 		file.close();
 		nofrecords = page.getNor();
-		cout << nofrecords << "page id : " << page.getId();
+		//cout << nofrecords << "page id : " << page.getId();
 		for (int j = 1; j <= nofrecords; j++) {
 			switch (j)
 			{
 			case 1:
 				record = page.getR1();
-				cout << "1 " << record.getF2() << endl;
+				//cout << "1 " << record.getF2() << endl;
 				typeptr1 = record.getType();
 				//cout << "compare : " << strcmp(typeptr->getName(), typeptr1->getF1());
 				if (!strcmp(type.getName(), typeptr1.getName())) {
@@ -133,7 +134,7 @@ bool Dml::listRecords() {
 			case 2:
 				record = page.getR2();
 				typeptr1 = record.getType();
-				cout << "2 " << record.getF2() << endl;
+				//cout << "2 " << record.getF2() << endl;
 				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
@@ -147,8 +148,8 @@ bool Dml::listRecords() {
 			case 3:
 				record = page.getR3();
 				typeptr1 = record.getType();
-				cout << "3 " << record.getF2() << endl;
-				if (!strcmp(type.getName(), type.getName())) {
+				//cout << "3 " << record.getF2() << endl;
+				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
 					cout << type.getF2() << " = " << record.getF2() << endl;
@@ -161,7 +162,7 @@ bool Dml::listRecords() {
 			case 4:
 				record = page.getR4();
 				typeptr1 = record.getType();
-				if (!strcmp(type.getName(), type.getName())) {
+				if (!strcmp(type.getName(), typeptr1.getName())) {
 					cout << endl;
 					cout << type.getF1() << " = " << record.getF1() << endl;
 					cout << type.getF2() << " = " << record.getF2() << endl;
