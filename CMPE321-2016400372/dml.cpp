@@ -57,7 +57,7 @@ bool Dml::createRecord() {
 		syscat.open(".\\page2.dat", ios::out | ios::app);
 		syscat.put(0);
 		syscat.close();
-		File::reg_page(&Record(&type, 0, F1, F2, F3, F4, F5));
+		File::reg_page(Record(type, 0, F1, F2, F3, F4, F5));
 		goto escape;
 	}
 	else {
@@ -65,7 +65,7 @@ bool Dml::createRecord() {
 		syscat.close();
 	}
 
-	File::reg_page(&Record(&type,(int)id,F1,F2,F3,F4,F5));
+	File::reg_page(Record(type,(int)id,F1,F2,F3,F4,F5));
 escape:
 	DmlEntrance::getInstance()->console();
 	return true;
@@ -84,5 +84,112 @@ bool Dml::updateRecord() {
 }
 
 bool Dml::listRecords() {
+	Type type;
+	Type typeptr1;
+	fstream file;
+	Page page;
+	Record record;
+	int selected, nofrecords;
+	cout << "What type of records?" << endl << endl;
+	Ddl::getInstance()->listTypes();
+	cin >> selected;
+	type = Syscat::getInstance()->get_type((selected - 1) * sizeof(Type));
+	//typeptr = &type;
+	char page2num;
+	file.open(".\\page2.dat", ios::in | ios::beg);
+	file.get(page2num);
+	file.close();
+	int page2 = ((page2num - '0') + 48);
+	cout << "page2 " << page2;
+	if (page2 == 0) {
+		cout << "There are no types yet :(";
+		return true;
+	}
+	for (int i = 1; i <= page2; i++) {
+		file.open(".\\page.dat", ios::in | ios::binary);
+		file.seekg((i - 1) * sizeof(Page));
+		file.read((char*)&page, sizeof(Page));
+		file.close();
+		nofrecords = page.getNor();
+		cout << nofrecords << "page id : " << page.getId();
+		for (int j = 1; j <= nofrecords; j++) {
+			switch (j)
+			{
+			case 1:
+				record = page.getR1();
+				cout << "1 " << record.getF2() << endl;
+				typeptr1 = record.getType();
+				//cout << "compare : " << strcmp(typeptr->getName(), typeptr1->getF1());
+				if (!strcmp(type.getName(), typeptr1.getName())) {
+					cout << endl;
+					cout << type.getF1() << " = " << record.getF1() << endl;
+					cout << type.getF2() << " = " << record.getF2() << endl;
+					cout << type.getF3() << " = " << record.getF3() << endl;
+					cout << type.getF4() << " = " << record.getF4() << endl;
+					cout << type.getF5() << " = " << record.getF5() << endl;
+					cout << endl;
+				}
+				break;
+			case 2:
+				record = page.getR2();
+				typeptr1 = record.getType();
+				cout << "2 " << record.getF2() << endl;
+				if (!strcmp(type.getName(), typeptr1.getName())) {
+					cout << endl;
+					cout << type.getF1() << " = " << record.getF1() << endl;
+					cout << type.getF2() << " = " << record.getF2() << endl;
+					cout << type.getF3() << " = " << record.getF3() << endl;
+					cout << type.getF4() << " = " << record.getF4() << endl;
+					cout << type.getF5() << " = " << record.getF5() << endl;
+					cout << endl;
+				}
+				break;
+			case 3:
+				record = page.getR3();
+				typeptr1 = record.getType();
+				cout << "3 " << record.getF2() << endl;
+				if (!strcmp(type.getName(), type.getName())) {
+					cout << endl;
+					cout << type.getF1() << " = " << record.getF1() << endl;
+					cout << type.getF2() << " = " << record.getF2() << endl;
+					cout << type.getF3() << " = " << record.getF3() << endl;
+					cout << type.getF4() << " = " << record.getF4() << endl;
+					cout << type.getF5() << " = " << record.getF5() << endl;
+					cout << endl;
+				}
+				break;
+			case 4:
+				record = page.getR4();
+				typeptr1 = record.getType();
+				if (!strcmp(type.getName(), type.getName())) {
+					cout << endl;
+					cout << type.getF1() << " = " << record.getF1() << endl;
+					cout << type.getF2() << " = " << record.getF2() << endl;
+					cout << type.getF3() << " = " << record.getF3() << endl;
+					cout << type.getF4() << " = " << record.getF4() << endl;
+					cout << type.getF5() << " = " << record.getF5() << endl;
+					cout << endl;
+				}
+				break;
+			case 5:
+				record = page.getR5();
+				typeptr1 = record.getType();
+				if (!strcmp(type.getName(), typeptr1.getName())) {
+					cout << endl;
+					cout << type.getF1() << " = " << record.getF1() << endl;
+					cout << type.getF2() << " = " << record.getF2() << endl;
+					cout << type.getF3() << " = " << record.getF3() << endl;
+					cout << type.getF4() << " = " << record.getF4() << endl;
+					cout << type.getF5() << " = " << record.getF5() << endl;
+					cout << endl;
+				}
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	DmlEntrance::getInstance()->console();
+
 	return true;
 }
