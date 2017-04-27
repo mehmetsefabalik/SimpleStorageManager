@@ -45,14 +45,14 @@ bool File::reg_page(Record record) {
 		page1.setId(((page2num - '0') + 48));
 		page1.setNor(1);
 		page1.setR1(record);
-		cout << "recordid" << record.getId() << endl;
-		cout << "page created" << endl;
+		//cout << "recordid" << record.getId() << endl;
+		//cout << "page created" << endl;
 		file.open(".\\page.dat", ios::out | ios::binary | ios::app);
 		file.write((char *)&page1, sizeof(Page));
 		file.close();
 		file.open(".\\page2.dat", ios::out | ios::beg | ios::trunc);
 		file.put((char)(page1.getId() + 1));
-		cout << page1.getId() + 1;
+		//cout << page1.getId() + 1;
 		file.close();
 	}
 	else {
@@ -83,8 +83,8 @@ bool File::reg_page(Record record) {
 				file.close();
 				if (rename("temp.dat", "page.dat"))
 					cout << "error renaming";
-				cout << "nor " << page.getNor() << endl;
-				cout << "id" << page.getId() << endl;
+				//cout << "nor " << page.getNor() << endl;
+				//cout << "id" << page.getId() << endl;
 				return true;
 				break;
 			case 2:
@@ -103,8 +103,8 @@ bool File::reg_page(Record record) {
 				file.close();
 				if (rename("temp.dat", "page.dat"))
 					cout << "error renaming";
-				cout << "nor " << page.getNor() << endl;
-				cout << "id" << page.getId() << endl;
+				//cout << "nor " << page.getNor() << endl;
+				//cout << "id" << page.getId() << endl;
 				return true;
 				break;
 			case 3:
@@ -123,8 +123,8 @@ bool File::reg_page(Record record) {
 				file.close();
 				if (rename("temp.dat", "page.dat"))
 					cout << "error renaming";
-				cout << "nor " << page.getNor() << endl;
-				cout << "id" << page.getId() << endl;
+				//cout << "nor " << page.getNor() << endl;
+				//cout << "id" << page.getId() << endl;
 				return true;
 				break;
 			case 4:
@@ -143,8 +143,8 @@ bool File::reg_page(Record record) {
 				file.close();
 				if (rename("temp.dat", "page.dat"))
 					cout << "error renaming";
-				cout << "nor " << page.getNor() << endl;
-				cout << "id" << page.getId() << endl;
+				//cout << "nor " << page.getNor() << endl;
+				//cout << "id" << page.getId() << endl;
 				return true;
 				break;
 			case 5:
